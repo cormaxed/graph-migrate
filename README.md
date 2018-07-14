@@ -44,7 +44,7 @@ schema.vertexLabel('author').properties('name').add();
 
 A check for schema agreement is performed after every schema modifying statement is executed.
  
-The migration will wait until all host that are currently up, agree on the schema definition. If schema agreement cannot be acheived within 15 seconds the migration will be halted.
+The migration will wait until all hosts that are currently up, agree on the schema definition. If schema agreement cannot be acheived within 15 seconds the migration will be halted.
 
 ## Configuration
 
@@ -99,7 +99,7 @@ Common parameters:
 ```
 mvn clean package
 
-java -jar target/graph-migrate-1.0-SNAPSHOT-shaded.jar -H 127.0.0.1 -c graph-migrate.yaml -m profile -u admin -P password -s -Djavax.net.ssl.trustStore=truststore.jks
+java -jar target/graph-migrate-1.0-SNAPSHOT.jar -H 127.0.0.1 -c graph-migrate.yaml -m profile -u admin -P password -s -Djavax.net.ssl.trustStore=truststore.jks
 ```
 
 ## Testing Locally
