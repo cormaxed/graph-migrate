@@ -92,7 +92,9 @@ Common parameters:
 
 ### Running with Maven
 
-```mvn exec:java -Dexec.args="-H 127.0.0.1 -c graph-migrate.yaml -m profile -u username -P password -s" -Djavax.net.ssl.trustStore=truststore.jks"```
+```
+mvn exec:java -Dexec.args="-H 127.0.0.1 -c graph-migrate.yaml -m profile -u username -P password -s" -Djavax.net.ssl.trustStore=truststore.jks
+```
 
 ### Running from a Jar
 
