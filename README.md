@@ -123,7 +123,7 @@ ccm start
 ### Run a test migration
 
 ```
-mvn exec:java -Dexec.args="-H 127.0.0.1 -c ./src/test/resources/omahoco/migrate/config/graph-migrate.yaml
+mvn exec:java -Dexec.args="-H 127.0.0.1 -c ./src/test/resources/omahoco/migrate/config/graph-migrate.yaml"
 ```
 
 ### View versions applied to the database
