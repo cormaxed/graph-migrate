@@ -1,0 +1,11 @@
+schema: killrvideo
+migrationPath: "../"
+profiles:
+  local:
+    options:
+      graph.replication_config: "{'class' : 'SimpleStrategy', 'replication_factor' : 1 }"
+      graph.allow_scan: true
+  prod:
+    options:
+      graph.replication_config: "{'class' : 'SimpleStrategy', 'replication_factor' : 3 }"
+      graph.allow_scan: false

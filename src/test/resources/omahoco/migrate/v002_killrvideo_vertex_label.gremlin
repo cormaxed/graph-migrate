@@ -1,0 +1,5 @@
+/* Define vertex labels */
+schema.vertexLabel("genre").properties("genreId","name").create();
+schema.vertexLabel("person").properties("personId","name").create();
+schema.vertexLabel("user").properties("userId","age","gender").create();
+schema.vertexLabel("movie").properties("movieId","title","year","duration","country","production").create();

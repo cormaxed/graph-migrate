@@ -1,0 +1,14 @@
+// Define properties
+schema.propertyKey("genreId").Text().create();
+schema.propertyKey("personId").Text().create();
+schema.propertyKey("userId").Text().create();
+schema.propertyKey("movieId").Text().create();
+schema.propertyKey("name").Text().create();
+schema.propertyKey("age").Int().create();
+schema.propertyKey("gender").Text().create();
+schema.propertyKey("title").Text().create();
+schema.propertyKey("year").Int().create();
+schema.propertyKey("duration").Int().create();
+schema.propertyKey("country").Text().create();
+schema.propertyKey("production").Text().multiple().create();
+schema.propertyKey("rating").Int().create();

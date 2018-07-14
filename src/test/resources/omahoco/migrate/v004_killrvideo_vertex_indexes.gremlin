@@ -1,0 +1,10 @@
+// Define vertex indexes
+schema.vertexLabel("genre").index("genresById").materialized().by("genreId").add();
+schema.vertexLabel("genre").index("genresByName").materialized().by("name").add();
+schema.vertexLabel("person").index("personsById").materialized().by("personId").add();
+schema.vertexLabel("person").index("personsByName").materialized().by("name").add();
+schema.vertexLabel("user").index("usersById").materialized().by("userId").add();
+schema.vertexLabel("user").index("usersByAge").secondary().by("age").add();
+schema.vertexLabel("movie").index("moviesById").materialized().by("movieId").add();
+schema.vertexLabel("movie").index("moviesByTitle").materialized().by("title").add();
+schema.vertexLabel("movie").index("moviesByYear").secondary().by("year").add();

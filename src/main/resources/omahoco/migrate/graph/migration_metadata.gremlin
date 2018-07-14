@@ -1,0 +1,18 @@
+// Creates vertex to store applied migrations.
+// The vertex is indexed, so we don't have to enable 'graph.allow_scan'. Graph doesn't allow
+// you index labels, so we create a field with the same value for all vertices. We only expect to
+// create a small number of vertices so the cardinality of the index will stay small.
+
+// Define properties
+schema.propertyKey('migrationLabel').Text().ifNotExists().create();
+schema.propertyKey('migrationFilename').Text().ifNotExists().create();
+schema.propertyKey('migrationVersion').Text().ifNotExists().create();
+schema.propertyKey('migrationChecksum').Text().ifNotExists().create();
+schema.propertyKey('migrationContents').Text().ifNotExists().create();
+schema.propertyKey('migrationAppliedAt').Timestamp().ifNotExists().create();
+
+// Create Vertex
+schema.vertexLabel('databaseMigration').partitionKey('migrationLabel').clusteringKey('migrationFilename').properties('migrationLabel', 'migrationFilename', 'migrationVersion', 'migrationChecksum', 'migrationContents','migrationAppliedAt').ifNotExists().create();
+
+// Create Index
+//schema.vertexLabel('databaseMigration').index('byMigrationLabel').secondary().by('migrationLabel').add();

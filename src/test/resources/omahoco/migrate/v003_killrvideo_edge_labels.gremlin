@@ -1,0 +1,9 @@
+// Define edge labels
+schema.edgeLabel("knows").connection("user","user").create();
+schema.edgeLabel("rated").single().properties("rating").connection("user","movie").create();
+schema.edgeLabel("belongsTo").single().connection("movie","genre").create();
+schema.edgeLabel("actor").connection("movie","person").create();              // multiple() due to data
+schema.edgeLabel("director").single().connection("movie","person").create();
+schema.edgeLabel("composer").single().connection("movie","person").create();
+schema.edgeLabel("screenwriter").connection("movie","person").create();       // multiple() due to data
+schema.edgeLabel("cinematographer").single().connection("movie","person").create();
