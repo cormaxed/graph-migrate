@@ -1,5 +1,6 @@
 package omahoco.migrate;
 
+import omahoco.migrate.cli.CommaSeparatedStringOptionHandler;
 import omahoco.migrate.config.Config;
 import omahoco.migrate.config.YamlConfig;
 import omahoco.migrate.di.DseModule;
@@ -8,14 +9,13 @@ import com.google.inject.Injector;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
-import org.kohsuke.args4j.spi.StringArrayOptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public final class MigrationCli {
@@ -54,9 +54,10 @@ public final class MigrationCli {
     }
 
     public static final class MigrationArgs {
-        @Option(name = "-H", handler = StringArrayOptionHandler.class, usage = "Comma-separated list of contact points",
+        @Option(name = "-H", handler = CommaSeparatedStringOptionHandler.class,
+                usage = "Comma-separated list of contact points",
                 required = true)
-        private ArrayList<String> hosts;
+        private List<String> hosts;
 
         @Option(name = "-c", usage = "Path to configuration file")
         private File configFile = new File("graph-migrate.yaml");
@@ -80,11 +81,11 @@ public final class MigrationCli {
         @Option(name = "-v", usage = "Apply all versions up to and including")
         private int version;
 
-        public void setHosts(final ArrayList<String> hosts) {
+        public void setHosts(final List<String> hosts) {
             this.hosts = hosts;
         }
 
-        public ArrayList<String> getHosts() {
+        public List<String> getHosts() {
             return hosts;
         }
 
