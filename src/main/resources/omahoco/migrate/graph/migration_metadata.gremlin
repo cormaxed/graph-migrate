@@ -12,7 +12,7 @@ schema.propertyKey('migrationContents').Text().ifNotExists().create();
 schema.propertyKey('migrationAppliedAt').Timestamp().ifNotExists().create();
 
 // Create Vertex
-schema.vertexLabel('databaseMigration').partitionKey('migrationLabel').clusteringKey('migrationFilename').properties('migrationLabel', 'migrationFilename', 'migrationVersion', 'migrationChecksum', 'migrationContents','migrationAppliedAt').ifNotExists().create();
+schema.vertexLabel('databaseMigration').properties('migrationLabel', 'migrationFilename', 'migrationVersion', 'migrationChecksum', 'migrationContents','migrationAppliedAt').ifNotExists().create();
 
 // Create Index
-//schema.vertexLabel('databaseMigration').index('byMigrationLabel').secondary().by('migrationLabel').add();
+schema.vertexLabel('databaseMigration').index('byMigrationLabel').secondary().by('migrationLabel').add();
